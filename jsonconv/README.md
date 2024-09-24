@@ -62,10 +62,10 @@ func main() {
 	}
 	log.Printf("Deserialized Person: %+v\n", deserializedPerson)
 
-	// Serialize the Person struct to JSON using the convenience function jsonconv.SerializeCool.
+	// Serialize the Person struct to JSON using the convenience function jsonconv.MustSerialize.
 	// Returns a formatted JSON string.
-	coolJsonStr := jsonconv.SerializeCool(person)
-	log.Printf("Serialized JSON (cool version): %s\n", coolJsonStr)
+	mustJsonStr := jsonconv.MustSerialize(person)
+	log.Printf("Serialized JSON (must version): %s\n", mustJsonStr)
 
 	// DeserializeInto the JSON string back to a Person struct using jsonconv.DeserializeInto function.
 	// Returns an error if any.
@@ -83,19 +83,19 @@ func main() {
 
 Serialized JSON: {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
 Deserialized Person: {Name:John Doe Age:30 IsAdmin:true Email:john.doe@example.com CreatedAt:2024-05-23 10:29:31.612383 +0300 +03 Roles:[admin user]}
-Serialized JSON (cool version): {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
+Serialized JSON (must version): {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
 DeserializedInto Person: {Name:John Doe Age:30 IsAdmin:true Email:john.doe@example.com CreatedAt:2024-05-23 10:29:31.612383 +0300 +03 Roles:[admin user]}
 
 ```
 
-This example demonstrates how to serialize a `Person` struct to JSON using the `Serialize` function, deserialize the JSON string back to a `Person` struct using the `Deserialize` function, and use the convenience function `SerializeCool` to serialize the struct without checking for errors.
+This example demonstrates how to serialize a `Person` struct to JSON using the `Serialize` function, deserialize the JSON string back to a `Person` struct using the `Deserialize` function, and use the convenience function `MustSerialize` to serialize the struct without checking for errors.
 
 ## Functions
 
 The `jsonconv` package provides the following functions:
 
 - `Serialize(value interface{}) (string, error)`: Converts a Go value `v` to JSON and returns the JSON string and an error if any.
-- `SerializeCool(value interface{}) string`: Converts a Go value `v` to JSON and returns the JSON string. This function does not handle errors.
+- `MustSerialize(value interface{}) string`: Converts a Go value `v` to JSON and returns the JSON string. This function does not handle errors.
 - `Deserialize[YourStruct](jsonStr string) (yourStruct, error)`: Converts a JSON string `jsonStr` to a Go struct `yourStruct` and returns an error if any.
 - `DeserializeInto(jsonStr string, result *yourStruct) error`: Converts a JSON string `jsonStr` to a Go value pointed to by `result` and returns an error if any.
 
