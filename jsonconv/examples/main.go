@@ -44,9 +44,9 @@ func main() {
 	}
 	log.Printf("Deserialized Person: %+v\n", deserializedPerson)
 
-	// Serialize the Person struct to JSON using the convenience function jsonconv.SerializeCool.
+	// Serialize the Person struct to JSON using the convenience function jsonconv.MustSerialize.
 	// Returns a formatted JSON string.
-	coolJsonStr := jsonconv.SerializeCool(person)
+	coolJsonStr := jsonconv.MustSerialize(person)
 	log.Printf("Serialized JSON (cool version): %s\n", coolJsonStr)
 
 	// DeserializeInto the JSON string back to a Person struct using jsonconv.DeserializeInto function.

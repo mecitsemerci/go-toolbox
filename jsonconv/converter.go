@@ -31,19 +31,26 @@ func Serialize[T any](value T) (string, error) {
 	return string(bytes), nil
 }
 
-// SerializeCool converts a Go value to JSON without error checking.
+// MustSerialize converts a Go value to JSON without error checking.
+//
+// MustSerialize is a convenience function that converts a Go value to JSON without error checking.
+// It is intended for situations where error checking is not necessary.
 //
 // Parameters:
 //
-//	value: The Go value to be converted.
+//	value: The Go value to be converted. This can be of any type that can be marshalled to JSON.
 //
 // Returns:
 //
-//	A string representing the JSON value.
+//	A string representing the JSON value. If an error occurs during the conversion,
+//	this function will panic with the error.
 //
 // Note: This function does not handle errors, so it should be used when error checking is not necessary.
-func SerializeCool[T any](value T) string {
-	result, _ := Serialize(value)
+func MustSerialize[T any](value T) string {
+	result, err := Serialize(value)
+	if err != nil {
+		panic(err)
+	}
 	return result
 }
 

@@ -93,7 +93,7 @@ func TestSerializeCool_ShouldSerializeStructWhenValidInput(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			result := SerializeCool(tc.input)
+			result := MustSerialize(tc.input)
 
 			assert.Equal(t, tc.expected, result)
 		})
