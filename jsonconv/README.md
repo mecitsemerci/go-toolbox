@@ -83,7 +83,7 @@ func main() {
 
 Serialized JSON: {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
 Deserialized Person: {Name:John Doe Age:30 IsAdmin:true Email:john.doe@example.com CreatedAt:2024-05-23 10:29:31.612383 +0300 +03 Roles:[admin user]}
-Serialized JSON (cool version): {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
+Serialized JSON (must version): {"name":"John Doe","age":30,"is_admin":true,"email":"john.doe@example.com","created_at":"2024-05-23T10:29:31.612383+03:00","roles":["admin","user"]}
 DeserializedInto Person: {Name:John Doe Age:30 IsAdmin:true Email:john.doe@example.com CreatedAt:2024-05-23 10:29:31.612383 +0300 +03 Roles:[admin user]}
 
 ```

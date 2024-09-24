@@ -68,7 +68,7 @@ func TestSerialize_ShouldReturnErrorWhenInvalidInput(t *testing.T) {
 	}
 }
 
-func TestSerializeCool_ShouldSerializeStructWhenValidInput(t *testing.T) {
+func TestMustSerialize_ShouldSerializeStructWhenValidInput(t *testing.T) {
 	type TestStruct struct {
 		Name string `json:"name,omitempty"`
 		Age  int    `json:"age,omitempty"`
